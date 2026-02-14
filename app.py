@@ -3,11 +3,10 @@ import requests
 import threading
 from database import setup, connect
 from bot.main import run_bot
-from config import CLIENT_ID, CLIENT_SECRET, REDIRECT_URI, SECRET_KEY
 import os
 
 app = Flask(__name__)
-app.secret_key = SECRET_KEY
+app.secret_key = os.getenv("SECRET_KEY")
 API = "https://discord.com/api"
 
 def get_user(token):
@@ -63,5 +62,6 @@ if __name__ == "__main__":
     setup()
     port = int(os.environ.get("PORT", 10000))
     app.run(host="0.0.0.0", port=port)
+
 
 

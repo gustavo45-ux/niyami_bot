@@ -4,6 +4,7 @@ import threading
 from database import setup, connect
 from bot.main import run_bot
 from config import CLIENT_ID, CLIENT_SECRET, REDIRECT_URI, SECRET_KEY
+import os
 
 app = Flask(__name__)
 app.secret_key = SECRET_KEY
@@ -57,10 +58,10 @@ def guild_settings(guild_id):
     conn.close()
     return render_template("guild.html", guild_id=guild_id, config=config)
 
-def start():
-    setup()
-    threading.Thread(target=run_bot).start()
-    app.run(host="0.0.0.0", port=5000)
 
 if __name__ == "__main__":
-    start()
+    setup()
+    port = int(os.environ.get("PORT", 10000))
+    app.run(host="0.0.0.0", port=port)
+
+

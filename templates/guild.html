@@ -1,9 +1,0 @@
-<link rel="stylesheet" href="/static/style.css">
-<h2>Configuration serveur {{ guild_id }}</h2>
-<form method="POST">
-<label><input type="checkbox" name="counting" {% if config and config[1]==1 %}checked{% endif %}> Counting</label><br>
-<label><input type="checkbox" name="tickets" {% if config and config[2]==1 %}checked{% endif %}> Tickets</label><br>
-<label><input type="checkbox" name="events" {% if config and config[3]==1 %}checked{% endif %}> Events</label><br>
-<label><input type="checkbox" name="giveaways" {% if config and config[4]==1 %}checked{% endif %}> Giveaways</label><br>
-<button type="submit">Sauvegarder</button>
-</form>

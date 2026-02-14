@@ -1,11 +1,13 @@
 import discord
 from discord.ext import commands
 import os
+import asyncio
 
+# -------- Bot principal --------
 intents = discord.Intents.all()
 bot = commands.Bot(command_prefix="!", intents=intents)
 
-# -------- Cogs --------
+# -------- Charger les cogs --------
 async def load_cogs():
     for file in os.listdir("./bot/cogs"):
         if file.endswith(".py"):
@@ -17,10 +19,9 @@ async def on_ready():
     print(f"✅ Bot connecté : {bot.user}")
     await bot.tree.sync()
 
-# -------- Lancement du bot --------
+# -------- Fonction pour lancer le bot --------
 def run_bot():
-    # On lance le bot avec asyncio et on charge les cogs
-    import asyncio
+    # On crée une boucle asyncio pour lancer le bot dans un thread
     loop = asyncio.new_event_loop()
     asyncio.set_event_loop(loop)
 

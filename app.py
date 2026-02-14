@@ -8,6 +8,8 @@ import os
 app = Flask(__name__)
 app.secret_key = os.getenv("SECRET_KEY")
 API = "https://discord.com/api"
+CLIENT_ID = os.getenv("CLIENT_ID")
+REDIRECT_URI = os.getenv("REDIRECT_URI")
 
 def get_user(token):
     return requests.get(f"{API}/users/@me", headers={"Authorization": f"Bearer {token}"}).json()
@@ -62,6 +64,7 @@ if __name__ == "__main__":
     setup()
     port = int(os.environ.get("PORT", 10000))
     app.run(host="0.0.0.0", port=port)
+
 
 
 

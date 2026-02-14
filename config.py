@@ -1,6 +1,7 @@
 TOKEN = "MTQ3MDQ5NjY5MjA4NzQyMzI0Mg.GZBV4w.SIEwZuxf4Z0W7wqMvHclRgBEmom0OtGjvzVWM0"
 CLIENT_ID = "1470496692087423242"
 CLIENT_SECRET = "o2WfDGyQ8AAk8556cx4AFEHEdoG9GnWq"
-REDIRECT_URI = "https://niyami-bot.onrender.com"
+REDIRECT_URI = "https://niyami-bot.onrender.com/callback"
 
 SECRET_KEY = "502cf1b50090e121a3042281291e16a3"
+

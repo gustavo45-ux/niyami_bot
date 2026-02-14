@@ -27,6 +27,7 @@ def login():
 
 @app.route("/callback")
 def callback():
+    CLIENT_SECRET = os.getenv("CLIENT_SECRET")
     code = request.args.get("code")
     data = {"client_id": CLIENT_ID,"client_secret": CLIENT_SECRET,"grant_type":"authorization_code","code":code,"redirect_uri":REDIRECT_URI}
     r = requests.post(f"{API}/oauth2/token", data=data, headers={"Content-Type":"application/x-www-form-urlencoded"})
@@ -64,6 +65,7 @@ if __name__ == "__main__":
     setup()
     port = int(os.environ.get("PORT", 10000))
     app.run(host="0.0.0.0", port=port)
+
 
 
 

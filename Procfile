@@ -1,1 +1,3 @@
-web: gunicorn panel.app:app
+web: gunicorn app:app
+
+
